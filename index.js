@@ -1,8 +1,31 @@
 
 
 document.querySelector('.cardnumber').oninput = () =>{
-    document.querySelector('.cardnumberbox').innerText = document.querySelector('.cardnumber').value;
+    
+    let cardnumberbox = document.querySelector('.cardnumberbox');
+    let cardnumber = document.querySelector('.cardnumber').value;
+    
+    if (
+      cardnumber.length === 4 ||
+      cardnumber.length === 9 ||
+      cardnumber.length === 14
+    ) {
+      document.querySelector(".cardnumber").value += " ";
+    }
+
+    cardnumberbox.innerText = cardnumber;
+
+    if (cardnumber === '') {
+        cardnumberbox.innerText = "1234 xxxx xxxx 1234";
+    }
 }
+
+document.querySelector('.cardnumber').addEventListener('keydown', (e) => {
+    if (e.key === 'Backspace') {
+        document.querySelector(".cardnumber").value = ''
+        document.querySelector(".cardnumberbox").innerHTML = '1234 xxxx xxxx 1234'
+    }
+})
 
 document.querySelector('.cardhold').oninput = () =>{
     document.querySelector('.cardholderbox').innerText = document.querySelector('.cardhold').value;
