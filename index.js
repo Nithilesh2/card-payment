@@ -28,7 +28,7 @@ document.querySelector('.cardnumber').addEventListener('keydown', (e) => {
 })
 
 document.querySelector('.cardhold').oninput = () =>{
-    document.querySelector('.cardholderbox').innerText = document.querySelector('.cardhold').value;
+    document.querySelector('.cardholderbox').innerText = document.querySelector('.cardhold').value.toUpperCase();
 }
 
 document.querySelector('.mon-exp').oninput = () =>{
